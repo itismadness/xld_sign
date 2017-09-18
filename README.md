@@ -24,3 +24,10 @@ Notes
   - Most the code here is fixed up Hex-Rays dump from the Mac XLDLogChecker.bundle
   - The AKA sub_401AA0 refer to the win32 xldlogchecker.exe
 
+Necessary apt-get installs on Debian 8:
+```
+sudo apt-get install libssl-dev:i386
+sudo apt-get install clang++-3.5
+sudo apt-get install gcc-multilib g++-multilib
+sudo apt-get install libc++-dev
+```

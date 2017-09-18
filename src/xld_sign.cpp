@@ -596,7 +596,7 @@ int main(int argc, char *argv[]) {
   ss << in.rdbuf();
   std::string log(ss.str());
 
-  if (argc == 3 && (strcmp("-v", argv[1])==0)) {
+  //if (argc == 3 && (strcmp("-v", argv[1])==0)) {
     if ((log.size() <= 0x19) || (log.size() > 0x7A120) ||
         (strncmp(log.c_str(), "X Lossless Decoder version", 26))) {
       std::cout << file_name << ": Not a logfile\n";
@@ -615,22 +615,19 @@ int main(int argc, char *argv[]) {
       return -3;
     }
 
-    std::string plain_log(log.begin(), log.begin() + sig_start + 1);
+    std::string plain_log(log.begin(), log.begin() + sig_start);
     std::string sig_real = xld_signature(plain_log);
     std::string sig = log.substr(sig_start + 1);
 
     if (sig != sig_real) {
-      std::cout << file_name << ": Bad Sig\n";
+      std::cout << file_name << ": Malformed\n";
       return -3;
     }
 
     std::cout << file_name << ": OK\n";
     return 0;
-  }
+  //}
 
-  if (argc == 3 && (strcmp("-l", argv[1])==0))
-    std::cout << log;
-
-  std::cout << xld_signature(log);
+  //std::cout << xld_signature(log);
   return 0;
 }

@@ -5,8 +5,8 @@ SRC_DIR=./src
 #CC = g++
 CC=clang++-3.5
 
-CFLAGS_DEBUG = -m32 -static -O0 -g3
-CFLAGS_RELEASE = -m32 -static -O3
+CFLAGS_DEBUG = -m32 -static -O0 -g3 -I/usr/include/c++/4.9
+CFLAGS_RELEASE = -m32 -static -O3 -I/usr/include/c++/4.9
 CLIBS = -lcrypto
 
 CINC = -I$(SRC_DIR)
